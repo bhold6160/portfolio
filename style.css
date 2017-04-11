@@ -1,3 +1,5 @@
+
+
 .header {
   padding: 0.5em;
   /*border: solid black;*/
@@ -16,14 +18,14 @@ margin-top: 1em;
 }*/
 
 /*h1.ontop {
-  position: relative;
-  top: 4.7em;
+position: relative;
+top: 4.7em;
 }*/
 
 .my-pic {
-float: right;
-width: 20vw;
-height: 20vw;
+  float: right;
+  width: 20vw;
+  height: 20vw;
 }
 
 .top-nav ul {
