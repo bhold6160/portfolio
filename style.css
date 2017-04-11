@@ -1,0 +1,44 @@
+.header {
+  padding: 0.5em;
+  /*border: solid black;*/
+  background-color: black;
+  color: white;
+}
+
+/*.header {
+height: 4em;
+padding-top: 0.5em;
+opacity: 0.5;
+background: black;
+border-top: 3px solid #ccc;
+border-bottom: 3px solid #ccc;
+margin-top: 1em;
+}*/
+
+/*h1.ontop {
+  position: relative;
+  top: 4.7em;
+}*/
+
+.my-pic {
+float: right;
+width: 20vw;
+height: 20vw;
+}
+
+.top-nav ul {
+  /*text-decoration: none;*/
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.top-nav:hover ul {
+  display: flex;
+  color: blue;
+}
+
+.about-me {
+  padding: 3vw;
+}
