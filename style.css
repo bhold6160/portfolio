@@ -1,0 +1,22 @@
+.header {
+  padding: 0.5em;
+  border: solid black;
+}
+
+.my-pic {
+float: right;
+width: 20vw;
+height: 20vw;
+}
+
+.top-nav ul {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.top-nav:hover ul {
+  display: flex;
+  color: white;
+}
