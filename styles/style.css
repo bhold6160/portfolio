@@ -2,9 +2,9 @@
 
 .header {
   padding: 0.5em;
-  /*border: solid black;*/
-  background-color: black;
-  color: white;
+  border: solid black;
+  /*background-color: black;
+  color: white;*/
 }
 
 /*.header {
