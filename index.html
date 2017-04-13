@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/icons.css">
+  <!-- <link rel="stylesheet" href="styles/icons.css"> -->
   <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
@@ -29,20 +29,34 @@
   <main class="about-me">
     <h2>This is where I will put some information about myself - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
 
+    <script id="aboutTemplate" type="text/x-handlebars-template">
       <section class="data">
         <section>
-          <h1 class="aboutTitle"></h1>
+          <h1 class="aboutTitle">{{name}}</h1>
         </Section>
         <section>
-          <p id="locationId">Location:</p>
-          <p id="datesId">Dates:</p>
-          <p id="postionId">Position:</p>
-          <section class="article-body"><p>Description:</p></section>
+          <p id="locationId">Location: {{location}}</p>
+          <p id="datesId">Dates: {{dates}}</p>
+          <p id="postionId">Position: {{position}}</p>
+          <section class="article-body"><p>{{description}}</p></section>
         </section>
       </section>
 
+    </script>
+
+  <!-- <aside class="side-nav">
+    <nav class="scrolling-nav">
+      <ul>
+        <li><a href="#">Top</a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+
+  </aside> -->
   </main>
   <footer></footer>
+  <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" src="script/objects.js"></script>
   <script type="text/javascript" src="script/app.js"></script>
 </body>

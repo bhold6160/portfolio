@@ -12,14 +12,16 @@ function Resume(resumeDataObj) {
 }
 
 Resume.prototype.aboutMe = function() {
-var newAbout = $('article.template').clone();
+var newAbout = $('#aboutTemplate').html();
+var aboutTemplate = Handlebars.compile(newAbout);
+return aboutTemplate(this);
 
-newAbout.find('h1').html(this.name);
-newAbout.find('#locationId').html(this.location);
-newAbout.find('#datesId').html(this.dates);
-newAbout.find('#positionId').html(this.position);
-newAbout.find('article-body').html(this.description);
-}
+// newAbout.find('h1').text(this.name);
+// newAbout.find('#locationId').text(this.location);
+// newAbout.find('#datesId').text(this.dates);
+// newAbout.find('#positionId').text(this.position);
+// newAbout.find('article-body').html(this.description);
+};
 
 resumeRawData.forEach(function(resumeObject){
   resumeArr.push(new Resume(resumeObject));
