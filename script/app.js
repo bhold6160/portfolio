@@ -12,13 +12,14 @@ function Resume(resumeDataObj) {
 }
 
 Resume.prototype.aboutMe = function() {
-var newAbout = $('article.template').clone();
+var newAbout = $('.data').clone();
 
 newAbout.find('h1').html(this.name);
 newAbout.find('#locationId').html(this.location);
 newAbout.find('#datesId').html(this.dates);
 newAbout.find('#positionId').html(this.position);
-newAbout.find('article-body').html(this.description);
+newAbout.find('.article-body').html(this.description);
+return newAbout;
 }
 
 resumeRawData.forEach(function(resumeObject){
@@ -26,5 +27,5 @@ resumeRawData.forEach(function(resumeObject){
 });
 
 resumeArr.forEach(function(resume) {
-  $('.data').append(resume.aboutMe());
+  $('#aboutData').append(resume.aboutMe());
 });
