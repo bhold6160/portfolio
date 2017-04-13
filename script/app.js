@@ -13,6 +13,7 @@ function Resume(resumeDataObj) {
 
 Resume.prototype.aboutMe = function() {
 var newAbout = $('.data').clone();
+newAbout.removeClass('data');
 
 newAbout.find('h1').html(this.name);
 newAbout.find('#locationId').html(this.location);
