@@ -11,6 +11,7 @@ function Resume(dataObj) {
   this.dates = dataObj.dates;
   this.position = dataObj.position;
   this.description = dataObj.description;
+  this.lorem = dataObj.lorem;
 };
 
 Resume.prototype.aboutMe = function () {
@@ -21,6 +22,7 @@ Resume.prototype.aboutMe = function () {
   newAbout.find('#datesId').html(this.dates);
   newAbout.find('#positionId').html(this.position);
   newAbout.find('.article-body').html(this.description);
+  // newAbout.find('#lorem').html(this.lorem);
   return newAbout;
 };
 
