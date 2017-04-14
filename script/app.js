@@ -5,12 +5,13 @@ var schoolArr = [];
 var view = {};
 
 //Constructor function
-function Resume(dataOb) {
-  this.name = dataOb.name;
-  this.location = dataOb.location;
-  this.dates = dataOb.dates;
-  this.position = dataOb.position;
-  this.description = dataOb.description;
+function Resume(dataObj) {
+  this.name = dataObj.name;
+  this.location = dataObj.location;
+  this.dates = dataObj.dates;
+  this.position = dataObj.position;
+  this.description = dataObj.description;
+  this.lorem = dataObj.lorem;
 };
 
 Resume.prototype.aboutMe = function () {
@@ -21,6 +22,7 @@ Resume.prototype.aboutMe = function () {
   newAbout.find('#datesId').html(this.dates);
   newAbout.find('#positionId').html(this.position);
   newAbout.find('.article-body').html(this.description);
+  // newAbout.find('#lorem').html(this.lorem);
   return newAbout;
 };
 

@@ -1,10 +1,6 @@
-body {
-  background-image: url(images/seattle.jpg);
-}
-
 .header {
   padding: 0.5em;
-  border: solid grey;
+  /*border: solid grey;*/
   background-color: grey;
   color: white;
 }
