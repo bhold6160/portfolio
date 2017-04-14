@@ -5,12 +5,12 @@ var schoolArr = [];
 var view = {};
 
 //Constructor function
-function Resume(dataOb) {
-  this.name = dataOb.name;
-  this.location = dataOb.location;
-  this.dates = dataOb.dates;
-  this.position = dataOb.position;
-  this.description = dataOb.description;
+function Resume(dataObj) {
+  this.name = dataObj.name;
+  this.location = dataObj.location;
+  this.dates = dataObj.dates;
+  this.position = dataObj.position;
+  this.description = dataObj.description;
 };
 
 Resume.prototype.aboutMe = function () {
