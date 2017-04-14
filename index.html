@@ -8,11 +8,23 @@
   <script src="https://use.fontawesome.com/261674d4f3.js"></script>
   <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
   <title>Brandon Holderman</title>
+
+  <script id="template" type="text/x-handlebars-template">
+  <section id="about" class="tab-content">
+    <section class="data">
+      <h1>{{name}}</h1>
+      <p>{{location}}</p>
+      <p>{{dates}}</p>
+      <p>{{position}}</p>
+      {{description}}
+    </section>
+  </section>
+</script>
+
 </head>
 <body>
   <header class="header">
     <nav class="top-nav">
-
       <!-- <span class="icon-menu"></span> -->
       <!-- <i class="fa fa-home" aria-hidden="true"> -->
       <ul>
@@ -34,25 +46,13 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </section>
 
-    <section id="about" class="tab-content">
-      <section class="data">
-        <section>
-          <h1 class="aboutTitle"></h1>
-        </Section>
-        <section>
-          <p id="locationId"></p>
-          <p id="datesId"></p>
-          <p id="positionId"></p>
-          <section class="article-body"></section>
-        </section>
-      </section>
-
       <section id="schoolData"></section>
       <section id="aboutData"></section>
 
     </section>
   </main>
   <footer></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
   <script type="text/javascript" src="script/objects.js"></script>
   <script type="text/javascript" src="script/app.js"></script>
 </body>
