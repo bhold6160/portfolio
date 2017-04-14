@@ -15,15 +15,9 @@ function Resume(dataObj) {
 };
 
 Resume.prototype.aboutMe = function () {
-  var newAbout = $('.data').clone();
-  newAbout.removeClass('data');
-  newAbout.find('h1').html(this.name);
-  newAbout.find('#locationId').html(this.location);
-  newAbout.find('#datesId').html(this.dates);
-  newAbout.find('#positionId').html(this.position);
-  newAbout.find('.article-body').html(this.description);
-  // newAbout.find('#lorem').html(this.lorem);
-  return newAbout;
+  var aboutSource = $('#template').html();
+  var aboutTemplate = Handlebars.compile(aboutSource);
+  return aboutTemplate(this);
 };
 
 resumeRawData.forEach(function (resumeObject) {
