@@ -42,7 +42,7 @@ view.handleNav = function () {
     $('.tab-content[id="' + $(this).attr('data-content') + '"]').show();
   });
 
-  $('.main-nav .tab:first').click();
+  $('.top-nav .tab:first').click();
 };
 
 $(document).ready(function () {
