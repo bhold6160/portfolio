@@ -1,14 +1,19 @@
-
+body {
+  background-image: url(images/seattle.jpg);
+}
 
 .header {
   padding: 0.5em;
-  border: solid black;
+  border: solid grey;
+  background-color: grey;
+  color: white;
 }
 
 .my-pic {
   float: right;
   width: 20vw;
   height: 20vw;
+  border-radius: 2em;
 }
 
 .top-nav ul {
@@ -17,11 +22,12 @@
   display: flex;
   justify-content: space-around;
   color: white;
+  font-size: 1.75em;
 }
 
 .top-nav:hover ul {
   display: flex;
-  color: blue;
+  color: red;
 }
 
 .about-me {
@@ -30,4 +36,15 @@
 
 .data {
   /*display: none;*/
+}
+
+#resumeData {
+  float: left;
+  margin: 10vw;
+}
+
+#schoolData {
+  float: right;
+  margin: 10vw;
+  margin-top: -1.4em;
 }
