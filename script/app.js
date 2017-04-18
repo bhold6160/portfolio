@@ -6,6 +6,7 @@ var view = {};
 
 //Constructor function
 function Resume(dataObj) {
+  this.title = dataObj.title;
   this.name = dataObj.name;
   this.location = dataObj.location;
   this.dates = dataObj.dates;
@@ -15,6 +16,7 @@ function Resume(dataObj) {
 };
 
 function School(dataObj) {
+  this.title = dataObj.title;
   this.name = dataObj.name;
   this.location = dataObj.location;
   this.dates = dataObj.dates;

@@ -1,3 +1,7 @@
+html {
+  background-color: #ccc;
+}
+
 .header {
   padding: 0.5em;
   /*border: solid grey;*/
