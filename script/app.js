@@ -6,6 +6,7 @@ var view = {};
 
 //Constructor function
 function Resume(dataObj) {
+  this.title = dataObj.title;
   this.name = dataObj.name;
   this.location = dataObj.location;
   this.dates = dataObj.dates;
@@ -14,8 +15,21 @@ function Resume(dataObj) {
   this.lorem = dataObj.lorem;
 };
 
+function School(dataObj) {
+  this.title = dataObj.title;
+  this.name = dataObj.name;
+  this.location = dataObj.location;
+  this.dates = dataObj.dates;
+}
+
 Resume.prototype.aboutMe = function () {
-  var aboutSource = $('#template').html();
+  var aboutSource = $('#template-resume').html();
+  var aboutTemplate = Handlebars.compile(aboutSource);
+  return aboutTemplate(this);
+};
+
+School.prototype.aboutMe = function () {
+  var aboutSource = $('#template-school').html();
   var aboutTemplate = Handlebars.compile(aboutSource);
   return aboutTemplate(this);
 };
@@ -29,7 +43,7 @@ resumeArr.forEach(function (resume) {
 });
 
 schoolRawData.forEach(function (schoolObject) {
-  schoolArr.push(new Resume(schoolObject));
+  schoolArr.push(new School(schoolObject));
 });
 
 schoolArr.forEach(function (school) {
@@ -39,7 +53,7 @@ schoolArr.forEach(function (school) {
 view.handleNav = function () {
   $('.top-nav .tab').on('click', function () {
     $('.tab-content').hide();
-    $('.tab-content[id="' + $(this).attr('data-content') + '"]').show();
+    $('.tab-content[id="' + $(this).attr('data-content') + '"]').fadeIn(1500);
   });
 
   $('.top-nav .tab:first').click();
