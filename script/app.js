@@ -1,8 +1,7 @@
 'use strict'
 
-var resumeArr = [];
-var schoolArr = [];
-var view = {};
+let resumeArr = [];
+let schoolArr = [];
 
 //Constructor function
 function Resume(dataObj) {
@@ -12,8 +11,9 @@ function Resume(dataObj) {
   this.dates = dataObj.dates;
   this.position = dataObj.position;
   this.description = dataObj.description;
-  this.lorem = dataObj.lorem;
 };
+
+Resume.all = [];
 
 function School(dataObj) {
   this.title = dataObj.title;
@@ -23,42 +23,52 @@ function School(dataObj) {
 }
 
 Resume.prototype.aboutMe = function () {
-  var aboutSource = $('#template-resume').html();
-  var aboutTemplate = Handlebars.compile(aboutSource);
+  let aboutSource = $('#template-resume').html();
+  let aboutTemplate = Handlebars.compile(aboutSource);
   return aboutTemplate(this);
 };
 
 School.prototype.aboutMe = function () {
-  var aboutSource = $('#template-school').html();
-  var aboutTemplate = Handlebars.compile(aboutSource);
+  let aboutSource = $('#template-school').html();
+  let aboutTemplate = Handlebars.compile(aboutSource);
   return aboutTemplate(this);
 };
 
-resumeRawData.forEach(function (resumeObject) {
-  resumeArr.push(new Resume(resumeObject));
-});
+// resumeRawData.forEach(function (resumeObject) {
+//   resumeArr.push(new Resume(resumeObject));
+// });
+//
+// resumeArr.forEach(function (resume) {
+//   $('#aboutData').append(resume.aboutMe());
+// });
+//
+// schoolRawData.forEach(function (schoolObject) {
+//   schoolArr.push(new School(schoolObject));
+// });
+//
+// schoolArr.forEach(function (school) {
+//   $('#schoolData').append(school.aboutMe());
+// });
 
-resumeArr.forEach(function (resume) {
-  $('#aboutData').append(resume.aboutMe());
-});
-
-schoolRawData.forEach(function (schoolObject) {
-  schoolArr.push(new School(schoolObject));
-});
-
-schoolArr.forEach(function (school) {
-  $('#schoolData').append(school.aboutMe());
-});
-
-view.handleNav = function () {
-  $('.top-nav .tab').on('click', function () {
-    $('.tab-content').hide();
-    $('.tab-content[id="' + $(this).attr('data-content') + '"]').fadeIn(1500);
+Resume.loadALL = function (rawData) {
+  rawData.sort(function (a, b) {
+    return (new Resume);
   });
 
-  $('.top-nav .tab:first').click();
+  rawData.forEach(function (el) {
+    Resume.all.push(new Resume(el));
+  });
 };
 
-$(document).ready(function () {
-  view.handleNav();
-});
+Resume.fetchAll = function() {
+  if (localStorage.rawData) {
+    Resume.loadAll(JSON.parse(localStorage.rawData));
+    appView.initIndexPage();
+  } else {
+    $.getJSON('data/objects.json').then(function(rawData){
+      Resume.loadAll(rawData);
+      localStorage.setItem('rawData', JSON.stringify(rawData));
+      Resume.initIndexPage();
+    });
+  }
+};
