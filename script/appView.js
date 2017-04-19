@@ -9,27 +9,25 @@ view.handleNav = function () {
   $('.top-nav .tab:first').click();
 };
 
-$(document).ready(function () {
-  view.handleNav();
-});
+view.initIndexPage = function () {
 
-resumeRawData.forEach(function (resumeObject) {
-  resumeArr.push(new Resume(resumeObject));
-});
+    resumeRawData.forEach(function (resumeObject) {
+      resumeArr.push(new Resume(resumeObject));
+    });
 
-resumeArr.forEach(function (resume) {
-  $('#aboutData').append(resume.aboutMe());
-});
+    resumeArr.forEach(function (resume) {
+      $('#aboutData').append(resume.aboutMe());
+    });
 
-schoolRawData.forEach(function (schoolObject) {
-  schoolArr.push(new School(schoolObject));
-});
+    schoolRawData.forEach(function (schoolObject) {
+      schoolArr.push(new School(schoolObject));
+    });
 
-schoolArr.forEach(function (school) {
-  $('#schoolData').append(school.aboutMe());
-});
+    schoolArr.forEach(function (school) {
+      $('#schoolData').append(school.aboutMe());
+    });
+  };
 
-view.initIndexPage = function() {
-  Article.all.forEach(function(about) {
-    $('#aboutData').append(about.toHtml())
+  $(document).ready(function () {
+    view.handleNav();
   });
