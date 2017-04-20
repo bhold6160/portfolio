@@ -1,8 +1,8 @@
 'use strict'
 
-var resumeArr = [];
-var schoolArr = [];
-var view = {};
+let resumeArr = [];
+let schoolArr = [];
+const view = {};
 
 //Constructor function
 function Resume(dataObj) {
@@ -12,8 +12,9 @@ function Resume(dataObj) {
   this.dates = dataObj.dates;
   this.position = dataObj.position;
   this.description = dataObj.description;
-  this.lorem = dataObj.lorem;
 };
+
+// Resume.all = [];
 
 function School(dataObj) {
   this.title = dataObj.title;
@@ -23,42 +24,55 @@ function School(dataObj) {
 }
 
 Resume.prototype.aboutMe = function () {
-  var aboutSource = $('#template-resume').html();
-  var aboutTemplate = Handlebars.compile(aboutSource);
+  let aboutSource = $('#template-resume').html();
+  let aboutTemplate = Handlebars.compile(aboutSource);
   return aboutTemplate(this);
 };
 
 School.prototype.aboutMe = function () {
-  var aboutSource = $('#template-school').html();
-  var aboutTemplate = Handlebars.compile(aboutSource);
+  let aboutSource = $('#template-school').html();
+  let aboutTemplate = Handlebars.compile(aboutSource);
   return aboutTemplate(this);
 };
-
-resumeRawData.forEach(function (resumeObject) {
-  resumeArr.push(new Resume(resumeObject));
-});
-
-resumeArr.forEach(function (resume) {
-  $('#aboutData').append(resume.aboutMe());
-});
-
-schoolRawData.forEach(function (schoolObject) {
-  schoolArr.push(new School(schoolObject));
-});
-
-schoolArr.forEach(function (school) {
-  $('#schoolData').append(school.aboutMe());
-});
 
 view.handleNav = function () {
   $('.top-nav .tab').on('click', function () {
     $('.tab-content').hide();
     $('.tab-content[id="' + $(this).attr('data-content') + '"]').fadeIn(1500);
   });
-
-  $('.top-nav .tab:first').click();
 };
 
-$(document).ready(function () {
-  view.handleNav();
-});
+view.initIndexPage = function (rawDataObj) {
+    rawDataObj.forEach(function (resumeObject) {
+      resumeArr.push(new Resume(resumeObject));
+    });
+
+    resumeArr.forEach(function (resume) {
+      $('#aboutData').append(resume.aboutMe());
+    });
+
+    rawDataObj.forEach(function (schoolObject) {
+      schoolArr.push(new School(schoolObject));
+    });
+
+    schoolArr.forEach(function (school) {
+      $('#schoolData').append(school.aboutMe());
+    });
+  };
+
+  $(document).ready(function () {
+    view.handleNav();
+    Resume.fetchAll();
+      $('.top-nav .tab:first').click();
+  });
+
+Resume.fetchAll = function () {
+  if (localStorage.rawDataObj) {
+    view.initIndexPage(JSON.parse(localStorage.rawDataObj));
+  } else {
+    $.getJSON('data/objects.json').then(rawDataObj => {
+      view.initIndexPage(rawDataObj);
+      localStorage.setItem('rawDataObj', JSON.stringify(rawDataObj));
+    });
+  }
+};
