@@ -2,6 +2,7 @@
 
 let resumeArr = [];
 let schoolArr = [];
+const view = {};
 
 //Constructor function
 function Resume(dataObj) {
@@ -13,7 +14,7 @@ function Resume(dataObj) {
   this.description = dataObj.description;
 };
 
-Resume.all = [];
+// Resume.all = [];
 
 function School(dataObj) {
   this.title = dataObj.title;
@@ -34,24 +35,6 @@ School.prototype.aboutMe = function () {
   return aboutTemplate(this);
 };
 
-// resumeRawData.forEach(function (resumeObject) {
-//   resumeArr.push(new Resume(resumeObject));
-// });
-//
-// resumeArr.forEach(function (resume) {
-//   $('#aboutData').append(resume.aboutMe());
-// });
-//
-// schoolRawData.forEach(function (schoolObject) {
-//   schoolArr.push(new School(schoolObject));
-// });
-//
-// schoolArr.forEach(function (school) {
-//   $('#schoolData').append(school.aboutMe());
-// });
-
-const view = {};
-
 view.handleNav = function () {
   $('.top-nav .tab').on('click', function () {
     $('.tab-content').hide();
@@ -61,9 +44,9 @@ view.handleNav = function () {
   $('.top-nav .tab:first').click();
 };
 
-view.initIndexPage = function () {
+view.initIndexPage = function (rawDataObj) {
 
-    resumeRawData.forEach(function (resumeObject) {
+    rawDataObj.forEach(function (resumeObject) {
       resumeArr.push(new Resume(resumeObject));
     });
 
@@ -71,7 +54,7 @@ view.initIndexPage = function () {
       $('#aboutData').append(resume.aboutMe());
     });
 
-    schoolRawData.forEach(function (schoolObject) {
+    rawDataObj.forEach(function (schoolObject) {
       schoolArr.push(new School(schoolObject));
     });
 
@@ -82,26 +65,27 @@ view.initIndexPage = function () {
 
   $(document).ready(function () {
     view.handleNav();
+    view.initIndexPage();
   });
 
-Resume.loadALL = function (rawData) {
-  rawData.sort(function (a, b) {
-    return (new Resume);
-  });
-
-  rawData.forEach(function (el) {
-    Resume.all.push(new Resume(el));
-  });
-};
+// Resume.loadALL = function (rawData) {
+//   rawData.sort(function (a, b) {
+//     return (new Resume);
+//   });
+//
+//   rawData.forEach(function (el) {
+//     Resume.all.push(new Resume(el));
+//   });
+// };
 
 Resume.fetchAll = function() {
-  if (localStorage.rawData) {
-    Resume.loadAll(JSON.parse(localStorage.rawData));
-    appView.initIndexPage();
+  if (localStorage.rawDataObj) {
+    Resume.initIndexPage(JSON.parse(localStorage.rawDataObj));
+    view.initIndexPage();
   } else {
-    $.getJSON('data/objects.json').then(function(rawData){
-      Resume.loadAll(rawData);
-      localStorage.setItem('rawData', JSON.stringify(rawData));
+    $.getJSON('data/objects.json').then(function(rawDataObj){
+      Resume.initIndexPage(rawDataObj);
+      localStorage.setItem('rawDataObj', JSON.stringify(rawDataObj));
       Resume.initIndexPage();
     });
   }
