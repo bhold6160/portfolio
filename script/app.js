@@ -4,7 +4,6 @@ let resumeArr = [];
 let schoolArr = [];
 const view = {};
 
-//Constructor function
 function Resume(dataObj) {
   this.title = dataObj.title;
   this.name = dataObj.name;
@@ -13,8 +12,6 @@ function Resume(dataObj) {
   this.position = dataObj.position;
   this.description = dataObj.description;
 };
-
-// Resume.all = [];
 
 function School(dataObj) {
   this.title = dataObj.title;
@@ -60,10 +57,10 @@ view.initIndexPage = function (rawDataObj) {
     });
   };
 
-  $(document).ready(function () {
+$(document).ready(function () {
     view.handleNav();
     Resume.fetchAll();
-      $('.top-nav .tab:first').click();
+    $('.top-nav .tab:first').click();
   });
 
 Resume.fetchAll = function () {
