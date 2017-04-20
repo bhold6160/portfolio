@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My personal portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhold6160/portfolio.git"
+  },
+  "author": "Brandon Holderman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bhold6160/portfolio/issues"
+  },
+  "homepage": "https://github.com/bhold6160/portfolio#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "pg": "^6.1.5"
+  }
+}
