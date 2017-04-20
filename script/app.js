@@ -40,12 +40,9 @@ view.handleNav = function () {
     $('.tab-content').hide();
     $('.tab-content[id="' + $(this).attr('data-content') + '"]').fadeIn(1500);
   });
-
-  $('.top-nav .tab:first').click();
 };
 
 view.initIndexPage = function (rawDataObj) {
-
     rawDataObj.forEach(function (resumeObject) {
       resumeArr.push(new Resume(resumeObject));
     });
@@ -65,28 +62,17 @@ view.initIndexPage = function (rawDataObj) {
 
   $(document).ready(function () {
     view.handleNav();
-    view.initIndexPage();
+    Resume.fetchAll();
+      $('.top-nav .tab:first').click();
   });
 
-// Resume.loadALL = function (rawData) {
-//   rawData.sort(function (a, b) {
-//     return (new Resume);
-//   });
-//
-//   rawData.forEach(function (el) {
-//     Resume.all.push(new Resume(el));
-//   });
-// };
-
-Resume.fetchAll = function() {
+Resume.fetchAll = function () {
   if (localStorage.rawDataObj) {
-    Resume.initIndexPage(JSON.parse(localStorage.rawDataObj));
-    view.initIndexPage();
+    view.initIndexPage(JSON.parse(localStorage.rawDataObj));
   } else {
-    $.getJSON('data/objects.json').then(function(rawDataObj){
-      Resume.initIndexPage(rawDataObj);
+    $.getJSON('data/objects.json').then(rawDataObj => {
+      view.initIndexPage(rawDataObj);
       localStorage.setItem('rawDataObj', JSON.stringify(rawDataObj));
-      Resume.initIndexPage();
     });
   }
 };
