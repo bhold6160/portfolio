@@ -5,19 +5,19 @@ let schoolArr = [];
 const view = {};
 
 function Resume(dataObj) {
-  this.title = dataObj.title;
   this.name = dataObj.name;
   this.location = dataObj.location;
   this.dates = dataObj.dates;
   this.position = dataObj.position;
   this.description = dataObj.description;
+  this.category = dataObj.category;
 };
 
 function School(dataObj) {
-  this.title = dataObj.title;
   this.name = dataObj.name;
   this.location = dataObj.location;
   this.dates = dataObj.dates;
+  this.category = dataObj.category;
 }
 
 Resume.prototype.aboutMe = function () {
@@ -45,7 +45,9 @@ view.initIndexPage = function (rawDataObj) {
     });
 
     resumeArr.forEach(function (resume) {
-      $('#aboutData').append(resume.aboutMe());
+      if (resume.category === 'resume') {
+        $('#aboutData').append(resume.aboutMe());
+      }
     });
 
     rawDataObj.forEach(function (schoolObject) {
@@ -53,7 +55,9 @@ view.initIndexPage = function (rawDataObj) {
     });
 
     schoolArr.forEach(function (school) {
-      $('#schoolData').append(school.aboutMe());
+      if (school.category === 'school') {
+        $('#schoolData').append(school.aboutMe());
+      }
     });
   };
 
