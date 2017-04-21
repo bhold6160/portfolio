@@ -13,7 +13,7 @@ const client = new pg.Client(conString);
 client.connect();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('.'));
 
 app.listen(PORT, function () {
