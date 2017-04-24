@@ -1,5 +1,6 @@
 'use strict'
 
+$('.header').css('background-image', 'url(images/skyline-resize.jpg)');
 let resumeArr = [];
 let schoolArr = [];
 const view = {};
