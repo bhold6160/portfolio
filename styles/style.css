@@ -3,7 +3,7 @@ html {
 }
 
 .header {
-  padding: 0.75em;
+  padding: 0.5em;
   /*border: solid grey;*/
   background-color: grey;
   color: white;
@@ -48,3 +48,11 @@ html {
   margin: 10vw;
   margin-top: -1.4em;
 }
+
+/*@media(min-width: 700px){
+  .top-nav{
+    width: 49%;
+    float: left;
+    margin: 0;
+  }
+}*/

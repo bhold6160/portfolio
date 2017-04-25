@@ -41,5 +41,17 @@
     "name": "Highline Community College",
     "location": "Des Moines, WA",
     "dates": "2007-2011"
+  },
+  {
+    "category": "project",
+    "name": "Brandon's Bartending",
+    "link": "",
+    "image": "images/bartending.png",
+  },
+  {
+    "category": "project",
+    "name": "bus-mall",
+    "link": "",
+    "image": "bus-mall.png"
   }
 ]
