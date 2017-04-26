@@ -22,26 +22,26 @@
     this.category = dataObj.category;
   }
 
-  Resume.prototype.aboutMe = function () {
+  Resume.prototype.aboutMe () => {
     let aboutSource = $('#template-resume').html();
     let aboutTemplate = Handlebars.compile(aboutSource);
-    return aboutTemplate(this);
+    return aboutTemplate('#template-resume');
   };
 
-  School.prototype.aboutMe = function () {
+  School.prototype.aboutMe () => {
     let aboutSource = $('#template-school').html();
     let aboutTemplate = Handlebars.compile(aboutSource);
-    return aboutTemplate(this);
+    return aboutTemplate('#template-school');
   };
 
-  view.handleNav = function () {
-    $('.top-nav .tab').on('click', function () {
+  view.handleNav () => {
+    $('.top-nav .tab').on('click', () => {
       $('.tab-content').hide();
-      $('.tab-content[id="' + $(this).attr('data-content') + '"]').fadeIn(1500);
+      $('.tab-content[id="' + $('.top-nav .tab').attr('data-content') + '"]').fadeIn(1500);
     });
   };
 
-  view.initIndexPage = function (rawDataObj) {
+  view.initIndexPage (rawDataObj) => {
     rawDataObj.forEach(function (resumeObject) {
       resumeArr.push(new Resume(resumeObject));
     });
@@ -56,20 +56,20 @@
       schoolArr.push(new School(schoolObject));
     });
 
-    schoolArr.forEach(function (school) {
+    schoolArr.forEach( (school) => {
       if (school.category === 'school') {
         $('#schoolData').append(school.aboutMe());
       }
     });
   };
 
-  $(document).ready(function () {
+  $(document).ready( () => {
     view.handleNav();
     Resume.fetchAll();
     $('.top-nav .tab:first').click();
   });
 
-  Resume.fetchAll = function () {
+  Resume.fetchAll () => {
     if (localStorage.rawDataObj) {
       view.initIndexPage(JSON.parse(localStorage.rawDataObj));
     } else {
