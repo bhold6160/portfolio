@@ -35,13 +35,6 @@
     return aboutTemplate(this);
   };
 
-  // view.handleNav = function () {
-  //   $('.top-nav .tab').on('click', function () {
-  //     $('.tab-content').hide();
-  //     $('.tab-content[id="' + $(this).attr('data-content') + '"]').fadeIn(1500);
-  //   });
-  // };
-
   view.initIndexPage = function (rawDataObj) {
     rawDataObj.forEach(function (resumeObject) {
       resumeArr.push(new Resume(resumeObject));
@@ -65,7 +58,6 @@
   };
 
   $(document).ready(function () {
-    // view.handleNav();
     Resume.fetchAll();
     $('.top-nav .tab:first').click();
   });

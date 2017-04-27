@@ -4,7 +4,6 @@
   const homeController = {};
 
   homeController.init = () => {
-    Resume.fetchAll(view.initIndexPage);
     $('#aboutData').hide();
     $('#home').fadeIn(1500);
   };
