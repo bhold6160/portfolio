@@ -33,6 +33,19 @@
   </section>
 </script>
 
+<script id="repo-template" type="text/x-handlebars-template">
+  <li>
+    <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+     <p>Description: {{description}}</p>
+     <p>Language: {{language}}</p>
+     <p>Created: {{created_at}}</p>
+     <p>Last updated: {{updated_at}}</p>
+    {{#if watchers_count}}
+      <p>{{watchers_count}} watching this repo</p>
+    {{/if}}
+  </li>
+</script>
+
 </head>
 <body>
   <header class="header">
@@ -68,7 +81,7 @@
   <footer></footer>
   <script src="/vendor/script/page.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
-  <script src="/script/app.js"></script>
+  <script src="/script/models/app.js"></script>
   <script src="/script/models/repo.js"></script>
   <script src="/script/controllers/homeController.js"></script>
   <script src="/script/controllers/aboutController.js"></script>
