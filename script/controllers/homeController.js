@@ -8,5 +8,6 @@
     $('#home').fadeIn(1500);
   };
 
+  repos.requestRepos(repoView.index);
   module.homeController = homeController;
 })(window);
