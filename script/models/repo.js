@@ -5,15 +5,9 @@
 
   repos.all = [];
 
-  repos.requestRepos = function (callback) {
-    $.ajax({
-      url: 'https://api.github.com/user/repos?type=owner',
-      method: 'GET',
-      headers: {
-        Authorization: `token ${token}`,
-      },
-    })
-    .then(data => repos.all = data)
+  repos.requestRepos = function(callback) {
+    $.get('/github/user/repos?type=owner')
+    .then(data => repos.all = data, err => console.error(err))
     .then(callback);
   };
 
