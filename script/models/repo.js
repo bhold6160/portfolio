@@ -5,7 +5,7 @@
 
   repos.all = [];
 
-  repos.requestRepos = function(callback) {
+  repos.requestRepos = function (callback) {
     $.get('/github/user/repos?type=owner')
     .then(data => repos.all = data, err => console.error(err))
     .then(callback);
