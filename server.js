@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const requestProxy = require('express-request-proxy');
 
-// const conString = 'postgres://localhost:5432/portfolioServer';
-// const client = new pg.Client(conString);
+const conString = process.env.DATABASE_URL + 'portfolioServer';
+const client = new pg.Client(conString);
 
 client.connect();
 
